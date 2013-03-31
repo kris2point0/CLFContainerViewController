@@ -16,6 +16,9 @@
 		83AE6C7D1708CD1A0073C8B0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C7C1708CD1A0073C8B0 /* Default.png */; };
 		83AE6C7F1708CD1A0073C8B0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C7E1708CD1A0073C8B0 /* Default@2x.png */; };
 		83AE6C811708CD1A0073C8B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C801708CD1A0073C8B0 /* Default-568h@2x.png */; };
+		83AE6C941708CDB80073C8B0 /* CLFContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C8F1708CDB80073C8B0 /* CLFContainerViewController.m */; };
+		83AE6C951708CDB80073C8B0 /* CLFStackContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */; };
+		83AE6C961708CDB80073C8B0 /* CLFTabbedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		83AE6C7C1708CD1A0073C8B0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		83AE6C7E1708CD1A0073C8B0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		83AE6C801708CD1A0073C8B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		83AE6C8E1708CDB80073C8B0 /* CLFContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFContainerViewController.h; sourceTree = "<group>"; };
+		83AE6C8F1708CDB80073C8B0 /* CLFContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFContainerViewController.m; sourceTree = "<group>"; };
+		83AE6C901708CDB80073C8B0 /* CLFStackContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFStackContainerViewController.h; sourceTree = "<group>"; };
+		83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFStackContainerViewController.m; sourceTree = "<group>"; };
+		83AE6C921708CDB80073C8B0 /* CLFTabbedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFTabbedContainerViewController.h; sourceTree = "<group>"; };
+		83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFTabbedContainerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,7 @@
 		83AE6C701708CD1A0073C8B0 /* CLFContainerExample */ = {
 			isa = PBXGroup;
 			children = (
+				83AE6C8D1708CDB80073C8B0 /* CLFContainerViewController */,
 				83AE6C711708CD1A0073C8B0 /* Supporting Files */,
 			);
 			path = CLFContainerExample;
@@ -97,6 +107,20 @@
 				83AE6C801708CD1A0073C8B0 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83AE6C8D1708CDB80073C8B0 /* CLFContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				83AE6C8E1708CDB80073C8B0 /* CLFContainerViewController.h */,
+				83AE6C8F1708CDB80073C8B0 /* CLFContainerViewController.m */,
+				83AE6C901708CDB80073C8B0 /* CLFStackContainerViewController.h */,
+				83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */,
+				83AE6C921708CDB80073C8B0 /* CLFTabbedContainerViewController.h */,
+				83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */,
+			);
+			name = CLFContainerViewController;
+			path = ../../CLFContainerViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +191,9 @@
 			files = (
 				83AE6C771708CD1A0073C8B0 /* main.m in Sources */,
 				83AE6C7B1708CD1A0073C8B0 /* CLFAppDelegate.m in Sources */,
+				83AE6C941708CDB80073C8B0 /* CLFContainerViewController.m in Sources */,
+				83AE6C951708CDB80073C8B0 /* CLFStackContainerViewController.m in Sources */,
+				83AE6C961708CDB80073C8B0 /* CLFTabbedContainerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
