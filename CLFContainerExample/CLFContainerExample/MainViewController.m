@@ -40,7 +40,7 @@
     CLFStackContainerViewController *stackController =
         [self.storyboard
          instantiateViewControllerWithIdentifier:@"StackContainerVC"];
-    CLFWobbleContainerViewController *wobbleController =
+    WobbleContainerViewController *wobbleController =
         [self.storyboard
          instantiateViewControllerWithIdentifier:@"WobbleContainerVC"];
 
