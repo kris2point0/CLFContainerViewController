@@ -16,8 +16,6 @@
 		83AE6C7D1708CD1A0073C8B0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C7C1708CD1A0073C8B0 /* Default.png */; };
 		83AE6C7F1708CD1A0073C8B0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C7E1708CD1A0073C8B0 /* Default@2x.png */; };
 		83AE6C811708CD1A0073C8B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C801708CD1A0073C8B0 /* Default-568h@2x.png */; };
-		83AE6C841708CD1A0073C8B0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6C821708CD1A0073C8B0 /* MainStoryboard.storyboard */; };
-		83AE6C871708CD1A0073C8B0 /* CLFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C861708CD1A0073C8B0 /* CLFViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +32,6 @@
 		83AE6C7C1708CD1A0073C8B0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		83AE6C7E1708CD1A0073C8B0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		83AE6C801708CD1A0073C8B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		83AE6C831708CD1A0073C8B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		83AE6C851708CD1A0073C8B0 /* CLFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLFViewController.h; sourceTree = "<group>"; };
-		83AE6C861708CD1A0073C8B0 /* CLFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLFViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +78,6 @@
 		83AE6C701708CD1A0073C8B0 /* CLFContainerExample */ = {
 			isa = PBXGroup;
 			children = (
-				83AE6C791708CD1A0073C8B0 /* CLFAppDelegate.h */,
-				83AE6C7A1708CD1A0073C8B0 /* CLFAppDelegate.m */,
-				83AE6C821708CD1A0073C8B0 /* MainStoryboard.storyboard */,
-				83AE6C851708CD1A0073C8B0 /* CLFViewController.h */,
-				83AE6C861708CD1A0073C8B0 /* CLFViewController.m */,
 				83AE6C711708CD1A0073C8B0 /* Supporting Files */,
 			);
 			path = CLFContainerExample;
@@ -96,6 +86,8 @@
 		83AE6C711708CD1A0073C8B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83AE6C791708CD1A0073C8B0 /* CLFAppDelegate.h */,
+				83AE6C7A1708CD1A0073C8B0 /* CLFAppDelegate.m */,
 				83AE6C721708CD1A0073C8B0 /* CLFContainerExample-Info.plist */,
 				83AE6C731708CD1A0073C8B0 /* InfoPlist.strings */,
 				83AE6C761708CD1A0073C8B0 /* main.m */,
@@ -163,7 +155,6 @@
 				83AE6C7D1708CD1A0073C8B0 /* Default.png in Resources */,
 				83AE6C7F1708CD1A0073C8B0 /* Default@2x.png in Resources */,
 				83AE6C811708CD1A0073C8B0 /* Default-568h@2x.png in Resources */,
-				83AE6C841708CD1A0073C8B0 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +167,6 @@
 			files = (
 				83AE6C771708CD1A0073C8B0 /* main.m in Sources */,
 				83AE6C7B1708CD1A0073C8B0 /* CLFAppDelegate.m in Sources */,
-				83AE6C871708CD1A0073C8B0 /* CLFViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +179,6 @@
 				83AE6C741708CD1A0073C8B0 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		83AE6C821708CD1A0073C8B0 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83AE6C831708CD1A0073C8B0 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
