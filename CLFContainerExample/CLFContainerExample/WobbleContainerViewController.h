@@ -1,5 +1,5 @@
 //
-//  CLFWobbleContainerViewController.h
+//  WobbleContainerViewController.h
 //  CLFContainerExample
 //
 //  Created by Chris Flesner on 3/27/13.
@@ -32,7 +32,7 @@
  */
 
 
-@interface CLFWobbleContainerViewController : CLFContainerViewController
+@interface WobbleContainerViewController : CLFContainerViewController
 
 // Initial setup, this container only supports having two view controllers
 - (void)setupWithFistViewController:(UIViewController *)firstViewController

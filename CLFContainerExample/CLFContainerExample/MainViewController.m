@@ -27,7 +27,7 @@
 #import "MainViewController.h"
 #import "StackWithPopButtonViewController.h"
 #import "StackChildViewController.h"
-#import "CLFWobbleContainerViewController.h"
+#import "WobbleContainerViewController.h"
 
 
 

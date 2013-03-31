@@ -1,5 +1,5 @@
 //
-//  CLFWobbleContainerViewController.m
+//  WobbleContainerViewController.m
 //  CLFContainerExample
 //
 //  Created by Chris Flesner on 3/27/13.
@@ -24,10 +24,10 @@
 //  IN THE SOFTWARE.
 //
 
-#import "CLFWobbleContainerViewController.h"
+#import "WobbleContainerViewController.h"
 
 
-@implementation CLFWobbleContainerViewController
+@implementation WobbleContainerViewController
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Initial Setup
