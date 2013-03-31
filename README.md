@@ -6,7 +6,7 @@ When subclassing CLFContainerViewController to create your own custom container,
 
 If your container is inside of a UINavigationController, the navigationItem properties will change accordingly as your container transitions between child view controllers.
 
-You are also given a powerful method for transitioning between view controllers in switchToViewController:animated:preAnimationSetup:animations:animationDurations:animationOptions:completionBlock:.
+You are given a powerful method for transitioning between view controllers with switchToViewController:animated:preAnimationSetup:animations:animationDurations:animationOptions:completionBlock:.
 
 With this class, you can create container view controllers who's children occupy the entire bounds of the container. For example, your subclass could mimic a UINavigationController, a UITabBarController, or a UIPageViewController, though you are certainly not limited to recreating already existing containers.
 
@@ -30,3 +30,45 @@ The MainViewController is a subclass of CLFTabbedContainerViewController, and ad
 The StackWithPopButtonViewController is a subclass of CLFStackContainerViewController, and adds a "Pop" button when you have view controllers pushed onto the stack.
 
 The WobbleViewController is just a subclass of CLFContainerViewController. It's not a very practical container view controller in itself, but it does demonstrate the use of multiple animation blocks in a transition.
+
+## Example Usage
+
+You can implement a custom container by overriding as little as one method. For example, this container would transition between view controllers by first fading out the "from view controller" and then fading in the "to view controller".
+
+```objective-c
+@interface FadeOutThenInContainerViewController : CLFContainerViewController
+@end
+
+@implementation FadeOutThenInContainerViewController
+
+- (void)switchToViewController:(UIViewController *)toViewController
+                      animated:(BOOL)animated
+           withCompletionBlock:(void (^)(BOOL finished))completionBlock
+{
+    void (^preAnimationSetup)() = ^{
+        self.toViewController.view.alpha = 0;
+    };
+    
+    NSArray *animationBlocks = @[ ^{
+        self.fromViewController.view.alpha = 0;
+    },
+    { 
+        self.toViewController.view.alpha = 1;
+    } ];
+    
+    NSArray *animationDurations = @[ @0.5, @0.5 ];
+    NSArray *animationOptions =
+        @[ @(UIViewAnimationOptionCurveEaseIn),
+           @(UIViewAnimationOptionCurveEaseOut) ];
+           
+    [self switchToViewController:toViewController
+                        animated:animated
+               preAnimationSetup:preAnimationSetup
+               		  animations:animationBlocks
+              animationDurations:animationDurations
+                animationOptions:animationOptions
+                 completionBlock:nil];
+}
+
+@end
+```

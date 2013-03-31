@@ -74,6 +74,7 @@
 		83AE6C5E1708CD1A0073C8B0 = {
 			isa = PBXGroup;
 			children = (
+				83AE6C8D1708CDB80073C8B0 /* CLFContainerViewController */,
 				83AE6C701708CD1A0073C8B0 /* CLFContainerExample */,
 				83AE6C691708CD1A0073C8B0 /* Frameworks */,
 				83AE6C681708CD1A0073C8B0 /* Products */,
@@ -101,7 +102,6 @@
 		83AE6C701708CD1A0073C8B0 /* CLFContainerExample */ = {
 			isa = PBXGroup;
 			children = (
-				83AE6C8D1708CDB80073C8B0 /* CLFContainerViewController */,
 				83AE6C971708CDEA0073C8B0 /* Containers */,
 				83AE6C981708CDEE0073C8B0 /* Children */,
 				83AE6CA51708CE310073C8B0 /* MainStoryboard.storyboard */,
@@ -137,7 +137,7 @@
 				83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */,
 			);
 			name = CLFContainerViewController;
-			path = ../../CLFContainerViewController;
+			path = ../CLFContainerViewController;
 			sourceTree = "<group>";
 		};
 		83AE6C971708CDEA0073C8B0 /* Containers */ = {
@@ -352,6 +352,7 @@
 				83AE6C8C1708CD1A0073C8B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
