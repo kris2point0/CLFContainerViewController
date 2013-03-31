@@ -19,6 +19,11 @@
 		83AE6C941708CDB80073C8B0 /* CLFContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C8F1708CDB80073C8B0 /* CLFContainerViewController.m */; };
 		83AE6C951708CDB80073C8B0 /* CLFStackContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */; };
 		83AE6C961708CDB80073C8B0 /* CLFTabbedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */; };
+		83AE6C9B1708CE080073C8B0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C9A1708CE080073C8B0 /* MainViewController.m */; };
+		83AE6C9E1708CE110073C8B0 /* StackWithPopButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6C9D1708CE110073C8B0 /* StackWithPopButtonViewController.m */; };
+		83AE6CA11708CE1C0073C8B0 /* CLFWobbleContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6CA01708CE1C0073C8B0 /* CLFWobbleContainerViewController.m */; };
+		83AE6CA41708CE280073C8B0 /* StackChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AE6CA31708CE280073C8B0 /* StackChildViewController.m */; };
+		83AE6CA61708CE310073C8B0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AE6CA51708CE310073C8B0 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,15 @@
 		83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFStackContainerViewController.m; sourceTree = "<group>"; };
 		83AE6C921708CDB80073C8B0 /* CLFTabbedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFTabbedContainerViewController.h; sourceTree = "<group>"; };
 		83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFTabbedContainerViewController.m; sourceTree = "<group>"; };
+		83AE6C991708CE080073C8B0 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		83AE6C9A1708CE080073C8B0 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		83AE6C9C1708CE110073C8B0 /* StackWithPopButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackWithPopButtonViewController.h; sourceTree = "<group>"; };
+		83AE6C9D1708CE110073C8B0 /* StackWithPopButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackWithPopButtonViewController.m; sourceTree = "<group>"; };
+		83AE6C9F1708CE1C0073C8B0 /* CLFWobbleContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFWobbleContainerViewController.h; sourceTree = "<group>"; };
+		83AE6CA01708CE1C0073C8B0 /* CLFWobbleContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFWobbleContainerViewController.m; sourceTree = "<group>"; };
+		83AE6CA21708CE280073C8B0 /* StackChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackChildViewController.h; sourceTree = "<group>"; };
+		83AE6CA31708CE280073C8B0 /* StackChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackChildViewController.m; sourceTree = "<group>"; };
+		83AE6CA51708CE310073C8B0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				83AE6C8D1708CDB80073C8B0 /* CLFContainerViewController */,
+				83AE6C971708CDEA0073C8B0 /* Containers */,
+				83AE6C981708CDEE0073C8B0 /* Children */,
+				83AE6CA51708CE310073C8B0 /* MainStoryboard.storyboard */,
 				83AE6C711708CD1A0073C8B0 /* Supporting Files */,
 			);
 			path = CLFContainerExample;
@@ -121,6 +138,28 @@
 			);
 			name = CLFContainerViewController;
 			path = ../../CLFContainerViewController;
+			sourceTree = "<group>";
+		};
+		83AE6C971708CDEA0073C8B0 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				83AE6C991708CE080073C8B0 /* MainViewController.h */,
+				83AE6C9A1708CE080073C8B0 /* MainViewController.m */,
+				83AE6C9C1708CE110073C8B0 /* StackWithPopButtonViewController.h */,
+				83AE6C9D1708CE110073C8B0 /* StackWithPopButtonViewController.m */,
+				83AE6C9F1708CE1C0073C8B0 /* CLFWobbleContainerViewController.h */,
+				83AE6CA01708CE1C0073C8B0 /* CLFWobbleContainerViewController.m */,
+			);
+			name = Containers;
+			sourceTree = "<group>";
+		};
+		83AE6C981708CDEE0073C8B0 /* Children */ = {
+			isa = PBXGroup;
+			children = (
+				83AE6CA21708CE280073C8B0 /* StackChildViewController.h */,
+				83AE6CA31708CE280073C8B0 /* StackChildViewController.m */,
+			);
+			name = Children;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +218,7 @@
 				83AE6C7D1708CD1A0073C8B0 /* Default.png in Resources */,
 				83AE6C7F1708CD1A0073C8B0 /* Default@2x.png in Resources */,
 				83AE6C811708CD1A0073C8B0 /* Default-568h@2x.png in Resources */,
+				83AE6CA61708CE310073C8B0 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +234,10 @@
 				83AE6C941708CDB80073C8B0 /* CLFContainerViewController.m in Sources */,
 				83AE6C951708CDB80073C8B0 /* CLFStackContainerViewController.m in Sources */,
 				83AE6C961708CDB80073C8B0 /* CLFTabbedContainerViewController.m in Sources */,
+				83AE6C9B1708CE080073C8B0 /* MainViewController.m in Sources */,
+				83AE6C9E1708CE110073C8B0 /* StackWithPopButtonViewController.m in Sources */,
+				83AE6CA11708CE1C0073C8B0 /* CLFWobbleContainerViewController.m in Sources */,
+				83AE6CA41708CE280073C8B0 /* StackChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
