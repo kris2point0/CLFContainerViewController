@@ -46,14 +46,14 @@ You can implement a custom container by overriding as little as one method. For 
            withCompletionBlock:(void (^)(BOOL finished))completionBlock
 {
     void (^preAnimationSetup)() = ^{
-        self.toViewController.view.alpha = 0;
+        self.transitionToViewController.view.alpha = 0;
     };
     
     NSArray *animationBlocks = @[ ^{
-        self.fromViewController.view.alpha = 0;
+        self.transitionFromViewController.view.alpha = 0;
     },
     { 
-        self.toViewController.view.alpha = 1;
+        self.transitionToViewController.view.alpha = 1;
     } ];
     
     NSArray *animationDurations = @[ @0.5, @0.5 ];
