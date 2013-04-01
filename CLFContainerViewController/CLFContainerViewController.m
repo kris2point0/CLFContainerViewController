@@ -50,6 +50,12 @@
 @property (nonatomic) BOOL childNeedsDisappeared;
 @property (nonatomic) BOOL animatedForChildNeedsDisappeared;
 
+// If the container gets rotated in the middle of a transition and the
+// transition completes before the rotation does these properties will
+// let us know we need to clean things up when the rotation is completed.
+@property (nonatomic) BOOL rotationInterruptedTransition;
+@property (nonatomic) BOOL transitionCompletedBeforeRotation;
+
 @end
 
 
@@ -126,6 +132,29 @@
     }
     else
         [self.currentViewController endAppearanceTransition];
+}
+
+
+- (void)
+willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                        duration:(NSTimeInterval)duration
+{
+    if (self.transitioning) {
+        self.rotationInterruptedTransition = YES;
+        self.transitionCompletedBeforeRotation = NO;
+    }
+}
+
+
+- (void)didRotateFromInterfaceOrientation:
+        (UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if (self.rotationInterruptedTransition) {
+        if (self.transitionCompletedBeforeRotation)
+            [self completeTransitionAndRemoveFromViewFromHierarchy:YES];
+        
+        self.rotationInterruptedTransition = NO;
+    }
 }
 
 
@@ -336,6 +365,9 @@
         }
         // Otherwise, finish up
         else {
+            if (self.rotationInterruptedTransition)
+                self.transitionCompletedBeforeRotation = YES;
+
             if (finished || self.childNeedsDisappeared)
                 [self completeTransitionAndRemoveFromViewFromHierarchy:YES];
                             
