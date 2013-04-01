@@ -67,7 +67,7 @@ You can implement a custom container by overriding as little as one method. For 
                		  animations:animationBlocks
               animationDurations:animationDurations
                 animationOptions:animationOptions
-                 completionBlock:nil];
+                 completionBlock:completionBlock];
 }
 
 @end
