@@ -122,6 +122,27 @@
 @property (nonatomic)
     BOOL preAnimateWhenInterruptingWithToTranistionToFromViewController;
 
+// If a rotation is started on the container in the middle of a transition,
+// and the transition completes before the rotation completes, it can
+// leave the transition stuck somewhere in the middle of the animation.
+// This block will be run in that situation to clean up the mess.
+//
+// The default implementation is as follows:
+//
+// - (void (^)())rotationInterruptionCleanupBlock
+// {
+//     return ^{
+//         self.currentViewController.view.frame = self.view.bounds;
+//         self.currentViewController.view.alpha = 1;
+//     };
+// }
+//
+// The default should suffice for most transitions, but the property is included
+// here to give you a chance to override it for your container's situation if
+// need be.
+//
+@property (readonly, nonatomic) void (^rotationInterruptionCleanupBlock)();
+
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Adding and Removing View Controllers

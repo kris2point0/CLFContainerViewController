@@ -150,8 +150,10 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
         (UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.rotationInterruptedTransition) {
-        if (self.transitionCompletedBeforeRotation)
+        if (self.transitionCompletedBeforeRotation) {
+            self.rotationInterruptionCleanupBlock();
             [self completeTransitionAndRemoveFromViewFromHierarchy:YES];
+        }
         
         self.rotationInterruptedTransition = NO;
     }
@@ -161,6 +163,18 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 - (BOOL)shouldAutomaticallyForwardAppearanceMethods
 {
     return NO;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Setters and Getters
+
+- (void (^)())rotationInterruptionCleanupBlock
+{
+    return ^{
+        self.currentViewController.view.frame = self.view.bounds;
+        self.currentViewController.view.alpha = 1;
+    };
 }
 
 
