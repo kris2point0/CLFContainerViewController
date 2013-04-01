@@ -70,10 +70,44 @@ You can implement a custom container by overriding as little as one method. For 
                  completionBlock:completionBlock];
 }
 
+
+// We'll add some view controllers to our container in awakeFromNib.
+// CLFContainerViewController will automatically put the first one on the screen
+// in viewWillAppear.
+//
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    UIViewController *vc1 =
+    	[self.storyboard
+         instantiateViewControllerWithIdentifier:@"ChildVC_1"];
+    UIViewController *vc2 =
+    	[self.storyboard
+         instantiateViewControllerWithIdentifier:@"ChildVC_2"];
+    UIViewController *vc3 =
+    	[self.storyboard
+         instantiateViewControllerWithIdentifier:@"ChildVC_3"];
+         
+    
+    [self addViewController:vc1];
+    [self addViewController:vc2];
+    [self addViewController:vc3];	
+}
+
+
+// For this example we'll assume we set up a segmented control for selecting view
+// controllers in our storyboard.
+//
+- (IBAction)userTappedViewControllerSelection:(UISegmentedControl *)sender
+{
+    [self switchToViewControllerAtIndex:sender.selectedSegmentIndex animated:YES];
+}
+
 @end
 ```
 
-## Copyright Notice
+## License Info
 Released under an MIT License.
 
 Copyright (c) 2013 Chris Flesner
