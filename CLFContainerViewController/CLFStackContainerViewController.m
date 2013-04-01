@@ -374,7 +374,7 @@
 {
     NSAssert([self.viewControllers containsObject:viewController],
              @"You cannot pop to a view controller that is not in"
-             @" the view controller hierarchy.");
+             @" the viewControllers array.");
 
     if (viewController == self.topViewController)
         return nil;
