@@ -349,9 +349,9 @@
           animationOptions:(NSArray *)animationOptions
            completionBlock:(void (^)(BOOL))completionBlock
 {
-    NSAssert (self.rootViewController,
-              @"You must have a root view controller set before pushing"
-              @" another view controller.");
+    NSAssert(self.rootViewController,
+             @"You must have a root view controller set before pushing"
+             @" another view controller.");
 
     [super addViewController:viewController];
     [super switchToViewController:viewController
