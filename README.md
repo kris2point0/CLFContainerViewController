@@ -16,8 +16,7 @@ This class, however, does not give you the ability to create a container view co
 
 Two useful subclasses are included for you to further subclass, or to examine for examples of how to subclass CLFContainerViewController.
 
-CLFStackContainerViewController implements a container view controller that functions as a stack with push and pop methods for adding and
-removing view controllers.
+CLFStackContainerViewController implements a container view controller that functions as a stack with push and pop methods for adding and removing view controllers. You can also push and pop view controllers using segues. CLFStackPushSegue is provided for pushing view controllers onto the stack, and CLFStackPopSegue is automatically used for any unwind segues that occur in the container.
 
 CLFTabbedContainerViewController implements a container view controller that functions similarly to a UITabBarController, although it does not include any UI for a tab bar (you could further implement such UI in your own subclass).
 
