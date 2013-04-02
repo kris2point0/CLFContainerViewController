@@ -25,6 +25,7 @@
 //
 
 #import "CLFStackContainerViewController.h"
+#import "CLFStackPopSegue.h"
 
 
 #pragma mark - Constants
@@ -399,6 +400,45 @@
     }];
 
     return poppedVCs;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Unwind Segues
+
+- (UIViewController *)
+    viewControllerForUnwindSegueAction:(SEL)action
+                    fromViewController:(UIViewController *)fromViewController
+                            withSender:(id)sender
+{
+    UIViewController *vcForSegue;
+
+    for (UIViewController *vc in self.viewControllers) {
+        if ([vc respondsToSelector:action]) {
+            vcForSegue = vc;
+            break;
+        }
+    }
+
+    if (!vcForSegue) {
+        vcForSegue =
+            [super viewControllerForUnwindSegueAction:action
+                                   fromViewController:fromViewController
+                                           withSender:sender];
+    }
+
+    return vcForSegue;
+}
+
+
+- (UIStoryboardSegue *)
+    segueForUnwindingToViewController:(UIViewController *)toViewController
+                   fromViewController:(UIViewController *)fromViewController
+                           identifier:(NSString *)identifier
+{
+    return [[CLFStackPopSegue alloc] initWithIdentifier:identifier
+                                                 source:fromViewController
+                                            destination:toViewController];
 }
 
 

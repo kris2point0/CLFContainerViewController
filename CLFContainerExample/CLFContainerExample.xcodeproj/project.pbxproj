@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83490D15170B308A00465C0A /* CLFStackPopSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 83490D12170B308A00465C0A /* CLFStackPopSegue.m */; };
+		83490D16170B308A00465C0A /* CLFStackPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 83490D14170B308A00465C0A /* CLFStackPushSegue.m */; };
 		83AE6C6B1708CD1A0073C8B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AE6C6A1708CD1A0073C8B0 /* UIKit.framework */; };
 		83AE6C6D1708CD1A0073C8B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AE6C6C1708CD1A0073C8B0 /* Foundation.framework */; };
 		83AE6C6F1708CD1A0073C8B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AE6C6E1708CD1A0073C8B0 /* CoreGraphics.framework */; };
@@ -27,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83490D11170B308A00465C0A /* CLFStackPopSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFStackPopSegue.h; sourceTree = "<group>"; };
+		83490D12170B308A00465C0A /* CLFStackPopSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFStackPopSegue.m; sourceTree = "<group>"; };
+		83490D13170B308A00465C0A /* CLFStackPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFStackPushSegue.h; sourceTree = "<group>"; };
+		83490D14170B308A00465C0A /* CLFStackPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFStackPushSegue.m; sourceTree = "<group>"; };
 		83AE6C671708CD1A0073C8B0 /* CLFContainerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLFContainerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AE6C6A1708CD1A0073C8B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83AE6C6C1708CD1A0073C8B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83490D10170B308A00465C0A /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				83490D13170B308A00465C0A /* CLFStackPushSegue.h */,
+				83490D14170B308A00465C0A /* CLFStackPushSegue.m */,
+				83490D11170B308A00465C0A /* CLFStackPopSegue.h */,
+				83490D12170B308A00465C0A /* CLFStackPopSegue.m */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
 		83AE6C5E1708CD1A0073C8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +152,7 @@
 				83AE6C911708CDB80073C8B0 /* CLFStackContainerViewController.m */,
 				83AE6C921708CDB80073C8B0 /* CLFTabbedContainerViewController.h */,
 				83AE6C931708CDB80073C8B0 /* CLFTabbedContainerViewController.m */,
+				83490D10170B308A00465C0A /* Segues */,
 			);
 			name = CLFContainerViewController;
 			path = ../CLFContainerViewController;
@@ -238,6 +256,8 @@
 				83AE6C9E1708CE110073C8B0 /* StackWithPopButtonViewController.m in Sources */,
 				83AE6CA11708CE1C0073C8B0 /* WobbleContainerViewController.m in Sources */,
 				83AE6CA41708CE280073C8B0 /* StackChildViewController.m in Sources */,
+				83490D15170B308A00465C0A /* CLFStackPopSegue.m in Sources */,
+				83490D16170B308A00465C0A /* CLFStackPushSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
