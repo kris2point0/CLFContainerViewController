@@ -55,7 +55,7 @@
 #pragma mark - Properties
 
 // The array of view controllers that this container is currently managing. View controllers are added to this array
-// using addViewController:, or insertViewController:atIndex:, and removed using the removeViewController:.
+// using addViewController:, or insertViewController:atIndex:, and removed using removeViewController:.
 //
 // Trying to transition to a view controller that is not in this array will raise an exception.
 //
