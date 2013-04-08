@@ -5,23 +5,19 @@
 //  Created by Chris Flesner on 3/23/13.
 //  Copyright (c) 2013 Chris Flesner
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to
-//  deal in the Software without restriction, including without limitation the
-//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-//  sell copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+//  documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+//  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+//  permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+//  the Software.
 //
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-//  IN THE SOFTWARE.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+//  THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 //
 
 #import "CLFContainerViewController.h"
@@ -40,19 +36,16 @@
 @property (strong, nonatomic) UIViewController *transitionFromViewController;
 @property (strong, nonatomic) UIViewController *transitionToViewController;
 
-// Whether or not this is the first time viewWillAppear and viewDidAppear
-// is being called.
+// Whether or not this is the first time viewWillAppear and viewDidAppear is being called.
 @property (nonatomic) BOOL appearedBefore;
 
-// If the container gets sent viewDidDisappear in the middle of a transition
-// this property is used to let us know that we need to disppear the child
-// view controller as soon as the transition is wrapped up.
+// If the container gets sent viewDidDisappear in the middle of a transition this property is used to let us know that
+// we need to disppear the child view controller as soon as the transition is wrapped up.
 @property (nonatomic) BOOL childNeedsDisappeared;
 @property (nonatomic) BOOL animatedForChildNeedsDisappeared;
 
-// If the container gets rotated in the middle of a transition and the
-// transition completes before the rotation does these properties will
-// let us know we need to clean things up when the rotation is completed.
+// If the container gets rotated in the middle of a transition and the transition completes before the rotation does
+// these properties will let us know we need to clean things up when the rotation is completed.
 @property (nonatomic) BOOL rotationInterruptedTransition;
 @property (nonatomic) BOOL transitionCompletedBeforeRotation;
 
@@ -64,7 +57,7 @@
 
 @implementation CLFContainerViewController
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Container Lifecycle
 
 - (void)awakeFromNib
@@ -85,18 +78,12 @@
 
     if (!self.appearedBefore) {
         // If there's a view controller available we'll put it on the screen.
-        if (self.viewControllers.count
-            && ![self.childViewControllers
-                 containsObject:self.viewControllers[0]])
-        {
-            [self switchToViewController:self.viewControllers[0]
-                                animated:NO];
-        }
+        if (self.viewControllers.count && ![self.childViewControllers containsObject:self.viewControllers[0]])
+            [self switchToViewController:self.viewControllers[0] animated:NO];
     }
-    else if (!self.transitioning) {
-        [self.currentViewController beginAppearanceTransition:YES
-                                                     animated:animated];
-    }
+    else if (!self.transitioning)
+        [self.currentViewController beginAppearanceTransition:YES animated:animated];
+
 }
 
 
@@ -115,10 +102,8 @@
 {
     [super viewWillDisappear:animated];
 
-    if (!self.transitioning) {
-        [self.currentViewController beginAppearanceTransition:NO
-                                                     animated:animated];
-    }
+    if (!self.transitioning)
+        [self.currentViewController beginAppearanceTransition:NO animated:animated];
 }
 
 
@@ -166,7 +151,7 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Setters and Getters
 
 - (CGRect)childRestingFrame
@@ -184,7 +169,7 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - VC Management
 
 - (void)addViewController:(UIViewController *)viewController
@@ -193,20 +178,16 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-- (void)insertViewController:(UIViewController *)viewController
-                     atIndex:(NSUInteger)index
+- (void)insertViewController:(UIViewController *)viewController atIndex:(NSUInteger)index
 {
     NSUInteger currentIndex = NSNotFound;
     
-    if (self.viewControllers.count) {
-        currentIndex =
-            [self.viewControllers indexOfObject:self.currentViewController];
-    }
+    if (self.viewControllers.count)
+        currentIndex = [self.viewControllers indexOfObject:self.currentViewController];
 
     [_viewControllers insertObject:viewController atIndex:index];
 
-    BOOL animated =
-        self.animateWhenInsertingOrRemovingViewControllerAtCurrentIndex;
+    BOOL animated = self.animateWhenInsertingOrRemovingViewControllerAtCurrentIndex;
 
     if (index == currentIndex)
         [self switchToViewController:viewController animated:animated];
@@ -219,28 +200,24 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
         UIViewController *toViewController;
 
         if (self.viewControllers.count > 1) {
-            NSUInteger index =
-                [self.viewControllers indexOfObject:viewController];
+            NSUInteger index = [self.viewControllers indexOfObject:viewController];
             index += (index ? -1 : 1);
 
             toViewController = self.viewControllers[index];
         }
 
-        BOOL animated =
-            self.animateWhenInsertingOrRemovingViewControllerAtCurrentIndex;
+        BOOL animated = self.animateWhenInsertingOrRemovingViewControllerAtCurrentIndex;
 
-        [self switchToViewController:toViewController
-                            animated:animated
-                 withCompletionBlock:^(BOOL finished) {
-                     [_viewControllers removeObject:viewController];
-                 }];
+        [self switchToViewController:toViewController animated:animated withCompletionBlock:^(BOOL finished) {
+            [_viewControllers removeObject:viewController];
+        }];
     }
     else
         [_viewControllers removeObject:viewController];
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - VC Switching Simplified API
 
 - (void)switchToViewController:(UIViewController *)toViewController
@@ -257,12 +234,9 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-- (void)switchToViewController:(UIViewController *)toViewController
-                      animated:(BOOL)animated
+- (void)switchToViewController:(UIViewController *)toViewController animated:(BOOL)animated
 {
-    [self switchToViewController:toViewController
-                        animated:animated
-             withCompletionBlock:nil];
+    [self switchToViewController:toViewController animated:animated withCompletionBlock:nil];
 }
 
 
@@ -271,25 +245,18 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                   withCompletionBlock:(void (^)(BOOL))completionBlock
 {
     UIViewController *toViewController = self.viewControllers[index];
-    
-    [self switchToViewController:toViewController
-                        animated:animated
-             withCompletionBlock:completionBlock];
+    [self switchToViewController:toViewController animated:animated withCompletionBlock:completionBlock];
 }
 
 
-- (void)switchToViewControllerAtIndex:(NSUInteger)index
-                             animated:(BOOL)animated
+- (void)switchToViewControllerAtIndex:(NSUInteger)index animated:(BOOL)animated
 {
     UIViewController *toViewController = self.viewControllers[index];
-    
-    [self switchToViewController:toViewController
-                        animated:animated
-             withCompletionBlock:nil];
+    [self switchToViewController:toViewController animated:animated withCompletionBlock:nil];
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - VC Switching
 
 - (void)switchToViewController:(UIViewController *)toViewController
@@ -307,19 +274,14 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
     if (fromViewController == toViewController)
         return;
 
-    BOOL transitioningToCurrentFrom =
-        (toViewController == self.transitionFromViewController) ? YES : NO;
+    BOOL transitioningToCurrentFrom = (toViewController == self.transitionFromViewController) ? YES : NO;
 
-    // End any transitions currently in progress.  If we're switching
-    // back to the current transitionFromViewController, then we'll
-    // keep its view in the view hierarchy rather than remove and re-add
-    // it.  Otherwise we'd see it disappear from the screen.
-    [self completeTransitionAndRemoveFromViewFromHierarchy:
-          !transitioningToCurrentFrom];
+    // End any transitions currently in progress.  If we're switching back to the current transitionFromViewController,
+    // then we'll keep its view in the view hierarchy rather than remove and re-add it.  Otherwise we'd see it disappear
+    // from the screen.
+    [self completeTransitionAndRemoveFromViewFromHierarchy:(!transitioningToCurrentFrom)];
 
-    [self registerTransitionFromViewController:fromViewController
-                              toViewController:toViewController
-                                      animated:animated];
+    [self registerTransitionFromViewController:fromViewController toViewController:toViewController animated:animated];
 
     if (!animationBlocks) {
         animationBlocks = @[ ^{} ];
@@ -332,16 +294,12 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
     }
 
     BOOL preAnimate = YES;
-    if (transitioningToCurrentFrom
-        && !self.preAnimateWhenInterruptingWithToTranistionToFromViewController)
-    {
+    if (transitioningToCurrentFrom && !self.preAnimateWhenInterruptingWithToTranistionToFromViewController)
         preAnimate = NO;
-    }
 
     if (preAnimate && preAnimationSetup) preAnimationSetup();
     
-    [self borrowNavItemContentsFromViewController:toViewController
-                                         animated:animated];
+    [self borrowNavItemContentsFromViewController:toViewController animated:animated];
 
     [self runAnimationBlocks:animationBlocks
                    durations:animationDurations
@@ -366,17 +324,13 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                      animations:animationBlocks[0]
                      completion:^(BOOL finished) {
         // If there's more animations to run, run them
-        if (animationBlocks.count > 1
-            && (finished || self.childNeedsDisappeared))
+        if (animationBlocks.count > 1 && (finished || self.childNeedsDisappeared))
         {
             NSRange leftovers = NSMakeRange(1, animationBlocks.count - 1);
                              
-            NSArray *leftoverBlocks =
-                [animationBlocks subarrayWithRange:leftovers];
-            NSArray *leftoverDurations =
-                [animationDurations subarrayWithRange:leftovers];
-            NSArray *leftoverOptions =
-                [animationOptions subarrayWithRange:leftovers];
+            NSArray *leftoverBlocks = [animationBlocks subarrayWithRange:leftovers];
+            NSArray *leftoverDurations = [animationDurations subarrayWithRange:leftovers];
+            NSArray *leftoverOptions = [animationOptions subarrayWithRange:leftovers];
 
             [self runAnimationBlocks:leftoverBlocks
                            durations:leftoverDurations
@@ -394,9 +348,8 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
             if (completionBlock) completionBlock(finished);
 
             if (self.childNeedsDisappeared) {
-                [self.currentViewController
-                 beginAppearanceTransition:NO
-                 animated:self.animatedForChildNeedsDisappeared];
+                [self.currentViewController beginAppearanceTransition:NO
+                                                             animated:self.animatedForChildNeedsDisappeared];
                     
                 [self.currentViewController endAppearanceTransition];
             }
@@ -417,8 +370,7 @@ registerTransitionFromViewController:(UIViewController *)fromViewController
 
     if (toViewController) {
         NSAssert([self.viewControllers containsObject:toViewController],
-                 @"You cannot transition to a view controller that has"
-                 @" not been added using addViewController:");
+                 @"You cannot transition to a view controller that has not been added using addViewController:");
 
         if (![self.childViewControllers containsObject:toViewController])
             [self addChildViewController:toViewController];
@@ -455,26 +407,19 @@ registerTransitionFromViewController:(UIViewController *)fromViewController
     UIView *view = viewController.view;
     view.frame = self.childRestingFrame;
 
-    view.autoresizingMask = UIViewAutoresizingFlexibleHeight
-                            | UIViewAutoresizingFlexibleWidth;
+    view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     [self.view insertSubview:view atIndex:0];
 }
 
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Navigation Items
 
-- (void)borrowNavItemContentsFromViewController:(UIViewController *)vc
-                                       animated:(BOOL)animated
+- (void)borrowNavItemContentsFromViewController:(UIViewController *)vc animated:(BOOL)animated
 {
-    [self lendNavItemContentsFromViewController:vc
-                               toViewController:self
-                                       animated:animated];
-
-    [self lendNavItemContentsFromViewController:self
-                               toViewController:self.parentViewController
-                                       animated:animated];
+    [self lendNavItemContentsFromViewController:vc toViewController:self animated:animated];
+    [self lendNavItemContentsFromViewController:self toViewController:self.parentViewController animated:animated];
 }
 
 
@@ -489,18 +434,14 @@ registerTransitionFromViewController:(UIViewController *)fromViewController
     toNavItem.prompt = fromNavItem.prompt;
 
     toNavItem.backBarButtonItem = fromNavItem.backBarButtonItem;
-    [toNavItem setHidesBackButton:fromNavItem.hidesBackButton
-                         animated:animated];
+    [toNavItem setHidesBackButton:fromNavItem.hidesBackButton animated:animated];
 
-    toNavItem.leftItemsSupplementBackButton =
-        fromNavItem.leftItemsSupplementBackButton;
+    toNavItem.leftItemsSupplementBackButton = fromNavItem.leftItemsSupplementBackButton;
 
     toNavItem.titleView = fromNavItem.titleView;
 
-    [toNavItem setLeftBarButtonItems:fromNavItem.leftBarButtonItems
-                            animated:animated];
-    [toNavItem setRightBarButtonItems:fromNavItem.rightBarButtonItems
-                             animated:animated];
+    [toNavItem setLeftBarButtonItems:fromNavItem.leftBarButtonItems animated:animated];
+    [toNavItem setRightBarButtonItems:fromNavItem.rightBarButtonItems animated:animated];
 }
 
 @end
