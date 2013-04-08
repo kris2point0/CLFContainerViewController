@@ -57,8 +57,7 @@ You can implement a custom container by overriding as little as one method. For 
     
     NSArray *animationDurations = @[ @0.5, @0.5 ];
     NSArray *animationOptions =
-        @[ @(UIViewAnimationOptionCurveEaseIn),
-           @(UIViewAnimationOptionCurveEaseOut) ];
+        @[ @(UIViewAnimationOptionCurveEaseIn), @(UIViewAnimationOptionCurveEaseOut) ];
            
     [self switchToViewController:toViewController
                         animated:animated
@@ -78,15 +77,9 @@ You can implement a custom container by overriding as little as one method. For 
 {
     [super awakeFromNib];
     
-    UIViewController *vc1 =
-    	[self.storyboard
-         instantiateViewControllerWithIdentifier:@"ChildVC_1"];
-    UIViewController *vc2 =
-    	[self.storyboard
-         instantiateViewControllerWithIdentifier:@"ChildVC_2"];
-    UIViewController *vc3 =
-    	[self.storyboard
-         instantiateViewControllerWithIdentifier:@"ChildVC_3"];
+    UIViewController *vc1 = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildVC_1"];
+    UIViewController *vc2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildVC_2"];
+    UIViewController *vc3 = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildVC_3"];
          
     
     [self addViewController:vc1];
