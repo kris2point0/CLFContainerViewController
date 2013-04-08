@@ -114,7 +114,7 @@
 // - (void (^)())rotationInterruptionCleanupBlock
 // {
 //     return ^{
-//         self.currentViewController.view.frame = self.childFrame;
+//         self.currentViewController.view.frame = self.childRestingFrame;
 //         self.currentViewController.view.alpha = 1;
 //     };
 // }
