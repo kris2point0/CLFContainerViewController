@@ -120,9 +120,8 @@
 }
 
 
-- (void)
-willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-                        duration:(NSTimeInterval)duration
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration
 {
     if (self.transitioning) {
         self.rotationInterruptedTransition = YES;
@@ -131,8 +130,7 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-- (void)didRotateFromInterfaceOrientation:
-        (UIInterfaceOrientation)fromInterfaceOrientation
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     if (self.rotationInterruptedTransition) {
         if (self.transitionCompletedBeforeRotation) {
@@ -358,10 +356,9 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 }
 
 
-- (void)
-registerTransitionFromViewController:(UIViewController *)fromViewController
-                    toViewController:(UIViewController *)toViewController
-                            animated:(BOOL)animated
+- (void)registerTransitionFromViewController:(UIViewController *)fromViewController
+                            toViewController:(UIViewController *)toViewController
+                                    animated:(BOOL)animated
 {
     self.transitioning = YES;
 
@@ -384,8 +381,7 @@ registerTransitionFromViewController:(UIViewController *)fromViewController
 }
 
 
-- (void)completeTransitionAndRemoveFromViewFromHierarchy:
-    (BOOL)removeFromViewFromHierarchy
+- (void)completeTransitionAndRemoveFromViewFromHierarchy:(BOOL)removeFromViewFromHierarchy
 {
     [self.transitionToViewController endAppearanceTransition];
     [self.transitionToViewController didMoveToParentViewController:self];
