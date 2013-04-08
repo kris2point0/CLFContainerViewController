@@ -25,7 +25,7 @@
 /* This subclass of CLFContainerViewController is meant to give you a starting point for creating tab-bar like view
  * controller containers.
  *
- * A delegate has been provided that mimics the delegate for a UITabBarController.
+ * A delegate protocol has been provided that mimics the delegate protocol for a UITabBarController.
  *
  * There is no UI for switching view controllers included in this subclass. It is up to you to determine and implement
  * any UI that may be needed for chosing different view controllers.
