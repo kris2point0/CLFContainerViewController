@@ -169,10 +169,16 @@ willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Setters and Getters
 
+- (CGRect)childRestingFrame
+{
+    return self.view.bounds;
+}
+
+
 - (void (^)())rotationInterruptionCleanupBlock
 {
     return ^{
-        self.currentViewController.view.frame = self.view.bounds;
+        self.currentViewController.view.frame = self.childRestingFrame;
         self.currentViewController.view.alpha = 1;
     };
 }
@@ -447,7 +453,7 @@ registerTransitionFromViewController:(UIViewController *)fromViewController
 - (void)addViewFromViewController:(UIViewController *)viewController
 {
     UIView *view = viewController.view;
-    view.frame = self.view.bounds;
+    view.frame = self.childRestingFrame;
 
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight
                             | UIViewAutoresizingFlexibleWidth;

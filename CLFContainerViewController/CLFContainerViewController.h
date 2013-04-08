@@ -86,6 +86,12 @@
 @property (readonly, nonatomic) BOOL transitioning;
 
 
+// This property determines the frame that will be used for child view
+// controllers in a non-transitioning state. Unless overriden by your subclass
+// it will return self.view.bounds
+@property (readonly, nonatomic) CGRect childRestingFrame;
+
+
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Properties that should only be used by subclasses
 
@@ -132,7 +138,7 @@
 // - (void (^)())rotationInterruptionCleanupBlock
 // {
 //     return ^{
-//         self.currentViewController.view.frame = self.view.bounds;
+//         self.currentViewController.view.frame = self.childFrame;
 //         self.currentViewController.view.alpha = 1;
 //     };
 // }
