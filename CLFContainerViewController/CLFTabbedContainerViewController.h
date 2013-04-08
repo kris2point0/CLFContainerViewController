@@ -72,15 +72,13 @@
 
 // Give your subclass a chance to react to what the delegate returns for
 // tabbedContainerViewController:shouldSelectViewController:
-- (void)
-delegateApprovedSwitchToViewController:(UIViewController *)viewController
-                              animated:(BOOL)animated
-                   withCompletionBlock:(void (^)(BOOL finished))completionBlock;
+- (void)delegateApprovedSwitchToViewController:(UIViewController *)viewController
+                                      animated:(BOOL)animated
+                           withCompletionBlock:(void (^)(BOOL finished))completionBlock;
 
-- (void)
-delegateRefusedSwitchToViewController:(UIViewController *)viewController
-                             animated:(BOOL)animated
-                  withCompletionBlock:(void (^)(BOOL finished))completionBlock;
+- (void)delegateRefusedSwitchToViewController:(UIViewController *)viewController
+                                     animated:(BOOL)animated
+                          withCompletionBlock:(void (^)(BOOL finished))completionBlock;
 
 @end
 
