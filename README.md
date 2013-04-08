@@ -69,8 +69,8 @@ You can implement a custom container by overriding as little as one method. For 
 }
 
 
-// We'll add some view controllers to our container in awakeFromNib. CLFContainerViewController will automatically put
-// the first one on the screen in viewWillAppear.
+// We'll add some view controllers to our container in awakeFromNib. CLFContainerViewController will
+// automatically put the first one on the screen in viewWillAppear.
 //
 - (void)awakeFromNib
 {
@@ -87,7 +87,8 @@ You can implement a custom container by overriding as little as one method. For 
 }
 
 
-// For this example we'll assume we set up a segmented control for selecting view controllers in our storyboard.
+// For this example we'll assume we set up a segmented control for selecting view controllers in our
+// storyboard.
 //
 - (IBAction)userTappedViewControllerSelection:(UISegmentedControl *)sender
 {
