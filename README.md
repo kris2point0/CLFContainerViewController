@@ -80,7 +80,6 @@ You can implement a custom container by overriding as little as one method. For 
     UIViewController *vc2 = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildVC_2"];
     UIViewController *vc3 = [self.storyboard instantiateViewControllerWithIdentifier:@"ChildVC_3"];
          
-    
     [self addViewController:vc1];
     [self addViewController:vc2];
     [self addViewController:vc3];	
