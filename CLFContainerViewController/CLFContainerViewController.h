@@ -71,6 +71,17 @@
 @property (readonly, nonatomic) BOOL transitioning;
 
 
+// This class uses key-value observing to determine when changes are made to self.currentViewController's
+// navigationItem's contents. Unfortunately, using this approach means that changing the barButtonItems with a method
+// that animates the change (for example setLeftBarButtonItems:animated:) will not honor the animated BOOL.
+//
+// As a workaround, this property is provided to give you the opportunity to animate those changes.
+//
+// The default is NO.
+//
+@property (nonatomic) BOOL animateNavItemBarButtonItemChanges;
+
+
 // This property determines the frame that will be used for child view controllers in a non-transitioning state. Unless
 // overriden by your subclass it will return self.view.bounds
 @property (readonly, nonatomic) CGRect childRestingFrame;

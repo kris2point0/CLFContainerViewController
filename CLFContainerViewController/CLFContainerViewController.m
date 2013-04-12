@@ -296,8 +296,10 @@
         preAnimate = NO;
 
     if (preAnimate && preAnimationSetup) preAnimationSetup();
-    
+
+    [self unobserveNavItemContentsForViewController:fromViewController];
     [self borrowNavItemContentsFromViewController:toViewController animated:animated];
+    [self observeNavItemContentsForViewController:toViewController];
 
     [self runAnimationBlocks:animationBlocks
                    durations:animationDurations
@@ -412,6 +414,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Navigation Items
 
+
 - (void)borrowNavItemContentsFromViewController:(UIViewController *)vc animated:(BOOL)animated
 {
     [self lendNavItemContentsFromViewController:vc toViewController:self animated:animated];
@@ -438,6 +441,48 @@
 
     [toNavItem setLeftBarButtonItems:fromNavItem.leftBarButtonItems animated:animated];
     [toNavItem setRightBarButtonItems:fromNavItem.rightBarButtonItems animated:animated];
+}
+
+
+- (NSArray *)navItemContentsToObserve
+{
+    return @[ @"title", @"prompt", @"backBarButtonItem", @"hidesBackButton", @"leftItemsSupplementBackButton",
+              @"titleView", @"leftBarButtonItem", @"leftBarButtonItems", @"rightBarButtonItem",
+              @"rightBarButtonItems" ];
+}
+
+
+- (void)observeNavItemContentsForViewController:(UIViewController *)vc
+{
+    UINavigationItem *navItem = vc.navigationItem;
+    void *context = (__bridge void *)self;
+
+    for (NSString *keyPath in [self navItemContentsToObserve])
+        [navItem addObserver:self forKeyPath:keyPath options:0 context:context];
+}
+
+
+- (void)unobserveNavItemContentsForViewController:(UIViewController *)vc
+{
+    UINavigationItem *navItem = vc.navigationItem;
+    void *context = (__bridge void *)self;
+
+    for (NSString *keyPath in [self navItemContentsToObserve])
+        [navItem removeObserver:self forKeyPath:keyPath context:context];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ((__bridge id)context == self) {
+        [self borrowNavItemContentsFromViewController:self.currentViewController
+                                             animated:self.animateNavItemBarButtonItemChanges];
+    }
+    else
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 @end
