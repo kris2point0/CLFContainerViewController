@@ -461,20 +461,18 @@
 - (void)observeNavItemContentsForViewController:(UIViewController *)vc
 {
     UINavigationItem *navItem = vc.navigationItem;
-    void *context = (__bridge void *)self;
 
     for (NSString *keyPath in [self navItemContentsToObserve])
-        [navItem addObserver:self forKeyPath:keyPath options:0 context:context];
+        [navItem addObserver:self forKeyPath:keyPath options:0 context:(__bridge void *)self];
 }
 
 
 - (void)unobserveNavItemContentsForViewController:(UIViewController *)vc
 {
     UINavigationItem *navItem = vc.navigationItem;
-    void *context = (__bridge void *)self;
 
     for (NSString *keyPath in [self navItemContentsToObserve])
-        [navItem removeObserver:self forKeyPath:keyPath context:context];
+        [navItem removeObserver:self forKeyPath:keyPath context:(__bridge void *)self];
 }
 
 
