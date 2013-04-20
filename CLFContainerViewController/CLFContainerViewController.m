@@ -77,13 +77,12 @@
     self.childNeedsDisappeared = NO;
 
     if (!self.appearedBefore) {
-        // If there's a view controller available we'll put it on the screen.
-        if (self.viewControllers.count && ![self.childViewControllers containsObject:self.viewControllers[0]])
+        // If there's a view controller available, and we haven't already switched to one, we'll put it on the screen.
+        if (self.viewControllers.count && !self.childViewControllers.count)
             [self switchToViewController:self.viewControllers[0] animated:NO];
     }
     else if (!self.transitioning)
         [self.currentViewController beginAppearanceTransition:YES animated:animated];
-
 }
 
 
