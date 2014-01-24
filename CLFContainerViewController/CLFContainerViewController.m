@@ -67,6 +67,14 @@
     _viewControllers = [NSMutableArray array];
     _animateWhenInsertingOrRemovingViewControllerAtCurrentIndex = YES;
     _preAnimateWhenInterruptingWithToTranistionToFromViewController = YES;
+    _borrowNavItemContentsFromChildren = YES;
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 
@@ -177,7 +185,8 @@
 
 - (void)addViewController:(UIViewController *)viewController
 {
-    [_viewControllers addObject:viewController];
+    if (viewController)
+        [_viewControllers addObject:viewController];
 }
 
 
@@ -199,6 +208,9 @@
 
 - (void)removeViewController:(UIViewController *)viewController
 {
+    if (!viewController)
+        return;
+    
     if (self.currentViewController == viewController) {
         UIViewController *toViewController;
 
@@ -302,9 +314,11 @@
 
     if (preAnimate && preAnimationSetup) preAnimationSetup();
 
-    [self unobserveNavItemContentsForViewController:fromViewController];
-    [self borrowNavItemContentsFromViewController:toViewController animated:animated];
-    [self observeNavItemContentsForViewController:toViewController];
+    if (self.borrowNavItemContentsFromChildren) {
+        [self unobserveNavItemContentsForViewController:fromViewController];
+        [self borrowNavItemContentsFromViewController:toViewController animated:animated];
+        [self observeNavItemContentsForViewController:toViewController];
+    }
 
     [self runAnimationBlocks:animationBlocks
                    durations:animationDurations
@@ -329,8 +343,7 @@
                      animations:animationBlocks[0]
                      completion:^(BOOL finished) {
         // If there's more animations to run, run them
-        if (animationBlocks.count > 1 && (finished || self.childNeedsDisappeared))
-        {
+        if (animationBlocks.count > 1 && (finished || self.childNeedsDisappeared)) {
             NSRange leftovers = NSMakeRange(1, animationBlocks.count - 1);
                              
             NSArray *leftoverBlocks = [animationBlocks subarrayWithRange:leftovers];
@@ -398,6 +411,7 @@
         [self.transitionFromViewController.view removeFromSuperview];
     
     [self.transitionFromViewController endAppearanceTransition];
+    [self.transitionFromViewController willMoveToParentViewController:nil];
     [self.transitionFromViewController removeFromParentViewController];
     self.transitionFromViewController = nil;
 
