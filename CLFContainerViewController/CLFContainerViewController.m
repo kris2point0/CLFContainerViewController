@@ -23,11 +23,14 @@
 #import "CLFContainerViewController.h"
 
 
+
 #pragma mark - Private Interface
 
 @interface CLFContainerViewController ()
 {
     NSMutableArray *_viewControllers;
+
+    void *_navItemsContext;
 }
 
 @property (strong, nonatomic) UIViewController *currentViewController;
@@ -177,6 +180,15 @@
         self.currentViewController.view.frame = self.childRestingFrame;
         self.currentViewController.view.alpha = 1;
     };
+}
+
+
+- (void)setBorrowNavItemContentsFromChildren:(BOOL)borrowNavItemContentsFromChildren
+{
+    if (_borrowNavItemContentsFromChildren && !borrowNavItemContentsFromChildren)
+        [self unobserveNavItemContentsForViewController:self.currentViewController];
+    
+    _borrowNavItemContentsFromChildren = borrowNavItemContentsFromChildren;
 }
 
 
@@ -475,17 +487,23 @@
 {
     UINavigationItem *navItem = vc.navigationItem;
 
+    _navItemsContext = &_navItemsContext;
+
     for (NSString *keyPath in [self navItemContentsToObserve])
-        [navItem addObserver:self forKeyPath:keyPath options:0 context:(__bridge void *)self];
+        [navItem addObserver:self forKeyPath:keyPath options:0 context:_navItemsContext];
 }
 
 
 - (void)unobserveNavItemContentsForViewController:(UIViewController *)vc
 {
-    UINavigationItem *navItem = vc.navigationItem;
+    if (_navItemsContext) {
+        UINavigationItem *navItem = vc.navigationItem;
 
-    for (NSString *keyPath in [self navItemContentsToObserve])
-        [navItem removeObserver:self forKeyPath:keyPath context:(__bridge void *)self];
+        for (NSString *keyPath in [self navItemContentsToObserve])
+            [navItem removeObserver:self forKeyPath:keyPath context:_navItemsContext];
+
+        _navItemsContext = NULL;
+    }
 }
 
 
@@ -494,7 +512,7 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ((__bridge id)context == self) {
+    if (context == _navItemsContext) {
         [self borrowNavItemContentsFromViewController:self.currentViewController
                                              animated:self.animateNavItemBarButtonItemChanges];
     }
