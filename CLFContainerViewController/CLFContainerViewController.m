@@ -112,11 +112,7 @@
 {
     [super viewWillDisappear:animated];
 
-    if (self.transitioning) {
-        self.childNeedsDisappeared = YES;
-        self.animatedForChildNeedsDisappeared = animated;
-    }
-    else
+    if (!self.transitioning)
         [self.currentViewController beginAppearanceTransition:NO animated:animated];
 }
 
@@ -129,7 +125,7 @@
         self.childNeedsDisappeared = YES;
         self.animatedForChildNeedsDisappeared = animated;
     }
-    else if (self.currentViewController.isBeingDismissed)
+    else
         [self.currentViewController endAppearanceTransition];
 }
 
@@ -381,7 +377,7 @@
                             
             if (completionBlock) completionBlock(finished);
 
-            if (self.childNeedsDisappeared && !self.currentViewController.isBeingDismissed) {
+            if (self.childNeedsDisappeared) {
                 [self.currentViewController beginAppearanceTransition:NO
                                                              animated:self.animatedForChildNeedsDisappeared];
                     
