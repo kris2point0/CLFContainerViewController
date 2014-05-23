@@ -57,6 +57,10 @@ typedef NS_ENUM(NSUInteger, CLFStackContainerPushPopDirections) {
 @property (readonly, nonatomic) UIViewController *rootViewController;
 @property (readonly, nonatomic) UIViewController *topViewController;
 
+// This overrides readonly property in base class and make possible to replace view controllers hierarchies dynamically
+// (similiar to UINavigationController)
+@property (readwrite, nonatomic) NSArray *viewControllers;
+
 // The default implementation uses this property to determine which
 // animations to use for the pushes and pops.
 //
