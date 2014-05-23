@@ -85,9 +85,13 @@
 
 
 // This property determines the frame that will be used for child view controllers in a non-transitioning state. Unless
-// overriden by your subclass it will return self.view.bounds
+// overriden by your subclass it will return self.containerView.bounds
 @property (readonly, nonatomic) CGRect childRestingFrame;
 
+// This property determines the view into which child view controller's view should be inserted as subview.
+// This could be convenient if container controller manages somewhat complex layout.
+// Unless overriden by your subclass is self.view
+@property (readonly, nonatomic) UIView *containerView;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Properties that should only be used by subclasses
