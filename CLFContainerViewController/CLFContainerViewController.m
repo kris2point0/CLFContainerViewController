@@ -170,9 +170,13 @@
 
 - (CGRect)childRestingFrame
 {
-    return self.view.bounds;
+    return self.containerView.bounds;
 }
 
+- (UIView *)containerView
+{
+	return self.view;
+}
 
 - (void (^)())rotationInterruptionCleanupBlock
 {
@@ -404,7 +408,7 @@
         if (![self.childViewControllers containsObject:toViewController])
             [self addChildViewController:toViewController];
 
-        if (![self.view.subviews containsObject:toViewController.view])
+        if (![self.containerView.subviews containsObject:toViewController.view])
             [self addViewFromViewController:toViewController];
     }
 
@@ -438,7 +442,7 @@
 
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
-    [self.view insertSubview:view atIndex:0];
+    [self.containerView insertSubview:view atIndex:0];
 }
 
 

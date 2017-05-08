@@ -68,6 +68,27 @@
 }
 
 
+- (void)setViewControllers:(NSArray *)controllers
+{
+	NSAssert([controllers count] > 0, @"CLFStackContainerViewController should has at least one controller!");
+	
+	NSArray *controllersToRemove = [self.viewControllers copy];
+	
+	for (UIViewController *controller in controllers)
+		[super addViewController:controller];
+	
+	[super switchToViewController:[controllers lastObject]
+						 animated:NO
+				preAnimationSetup:NULL
+					   animations:nil
+			   animationDurations:nil
+				 animationOptions:nil
+				  completionBlock:^(BOOL finished) {
+		 for (UIViewController *controller in controllersToRemove)
+			 [super removeViewController:controller];
+	}];
+}
+
 - (void (^)())transitionUpPreAnimationBlock
 {
     return ^{
